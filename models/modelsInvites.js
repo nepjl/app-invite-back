@@ -9,7 +9,6 @@ class Invite {
         this.allergie = allergie;
     }
 
-    // Création d'une invitation
     static async create(inviteData) {
         const { nom, prenom, email, preference_boisson, allergie } = inviteData;
 
@@ -24,7 +23,6 @@ class Invite {
         }
     }
 
-    // Récupération de toutes les invitations
     static async getAll() {
         try {
             const [invites] = await db.query('SELECT * FROM invites');
@@ -34,7 +32,6 @@ class Invite {
         }
     }
 
-    // Récupération d'une invitation par ID
     static async getById(id) {
         try {
             const [invites] = await db.query('SELECT * FROM invites WHERE id = ?', [id]);
@@ -47,7 +44,6 @@ class Invite {
         }
     }
 
-    // Suppression d'une invitation par ID
     static async deleteById(id) {
         try {
             const [result] = await db.query('DELETE FROM invites WHERE id = ?', [id]);

@@ -7,6 +7,10 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+app.use('/api/acceuil/', (req, res) => {
+    res.status(200).send(`Bienvenue sur notre API.`);
+});
+
 app.use('/api/', routeInvites);
 
 export default app;
